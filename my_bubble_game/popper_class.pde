@@ -8,6 +8,8 @@ class Popper {
   }
 
   void display() {
+    fill(0);
+    stroke(0,0,100);
     ellipse(loc.x, loc.y, d, d);
   }
 
