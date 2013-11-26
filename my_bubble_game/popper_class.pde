@@ -1,10 +1,14 @@
 class Popper {
   PVector loc;
   float d;
+  int moveSpeed;
+  PVector move;
 
   Popper() {
-    loc = new PVector(width/2, height-50);
+    loc = new PVector(width/2, height/2);
     d = 15;
+    moveSpeed = 3;
+    move = new PVector();
   }
 
   void display() {
@@ -14,13 +18,25 @@ class Popper {
   }
 
   void move() {
+    loc.add(move);
+    loc.x = constrain(loc.x, 0, width);
+    loc.y = constrain(loc.y, 0, height);
     if (keyPressed) {
+      if (key == ' ') {
+        move.set(0, 0);
+      }
       if (key == CODED) {
         if (keyCode == LEFT) {
-          loc.x-=2;
+          move.set(-moveSpeed, 0);
+        }
+        if (keyCode == UP) {
+          move.set(0, -moveSpeed);
         } 
         if (keyCode == RIGHT) {
-          loc.x+=2;
+          move.set(moveSpeed, 0);
+        }
+        if (keyCode == DOWN) {
+          move.set(0, moveSpeed);
         }
       }
     }
