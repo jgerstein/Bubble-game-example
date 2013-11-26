@@ -32,7 +32,12 @@ class Bubble {
     strokeWeight(3);
     stroke(hue, 20, 100);
     fill(hue, 70, 100, 50);
-    ellipse(loc.x, loc.y, d, d);
+    if (side%2 == 1) {
+      ellipse(loc.x, loc.y, d, d*.9);
+    }
+    else {
+      ellipse(loc.x, loc.y, d*.9, d);
+    }
   }
   void move() {
     vel.add(acc);

@@ -49,7 +49,8 @@ class Popper {
         float diff = d-b.d;
         float change;
         if (diff>=0) {
-          change = map(diff, 0, d-bubbleMaxSize, .25, 0);
+          change = map(diff, 0, d, 3, 0);  //change is largest when the difference between
+//change = 1;
         }
         else {
           change =0;
