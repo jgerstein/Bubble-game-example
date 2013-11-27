@@ -16,27 +16,50 @@ class Popper {
     stroke(0, 0, 100);
     ellipse(loc.x, loc.y, d, d);
   }
+  /*  This version causes continuous motion
+   void move() {
+   loc.add(move);
+   loc.x = constrain(loc.x, 0, width);
+   loc.y = constrain(loc.y, 0, height);
+   if (keyPressed) {
+   if (key == ' ') {
+   move.set(0, 0);
+   }
+   if (key == CODED) {
+   if (keyCode == LEFT) {
+   move.set(-moveSpeed, 0);
+   }
+   if (keyCode == UP) {
+   move.set(0, -moveSpeed);
+   } 
+   if (keyCode == RIGHT) {
+   move.set(moveSpeed, 0);
+   }
+   if (keyCode == DOWN) {
+   move.set(0, moveSpeed);
+   }
+   }
+   }
+   }
+   */
 
+  //This version moves if key is pressed
   void move() {
-    loc.add(move);
     loc.x = constrain(loc.x, 0, width);
     loc.y = constrain(loc.y, 0, height);
     if (keyPressed) {
-      if (key == ' ') {
-        move.set(0, 0);
-      }
       if (key == CODED) {
         if (keyCode == LEFT) {
-          move.set(-moveSpeed, 0);
+          loc.x -= moveSpeed;
         }
         if (keyCode == UP) {
-          move.set(0, -moveSpeed);
+          loc.y -= moveSpeed;
         } 
         if (keyCode == RIGHT) {
-          move.set(moveSpeed, 0);
+          loc.x += moveSpeed;
         }
         if (keyCode == DOWN) {
-          move.set(0, moveSpeed);
+          loc.y += moveSpeed;
         }
       }
     }
@@ -50,7 +73,7 @@ class Popper {
         float change;
         if (diff>=0) {
           change = map(diff, 0, d, 3, 0);  //change is largest when the difference between
-//change = 1;
+          //change = 1;
         }
         else {
           change =0;

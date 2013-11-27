@@ -14,7 +14,6 @@ void setup() {
 
 void draw() {
   background(140,0,50);
-  println(millis());
   if (frameCount%3 == 0) {
     bubs.add(new Bubble());
   }
